@@ -1,0 +1,48 @@
+cabal-version: 3.0
+name: trickle
+version: 0.1.0.0
+
+common commons
+  build-depends:
+    , base
+    , base-unicode-symbols
+    , bytestring
+    , http-client
+    , http-types
+    , optparse-generic
+    , quickcheck-instances
+    , text
+    , transformers
+
+  default-language: GHC2021
+  default-extensions:
+    BlockArguments
+    DuplicateRecordFields
+    LambdaCase
+    NoFieldSelectors
+    NoMonomorphismRestriction
+    OverloadedRecordDot
+    OverloadedStrings
+    RecordWildCards
+    UnicodeSyntax
+    ViewPatterns
+
+  ghc-options: -Wall -Wno-unused-imports
+
+library
+  import: commons
+  hs-source-dirs: library/
+  exposed-modules: Library
+
+executable trickle
+  import: commons
+  hs-source-dirs: executables/trickle/
+  main-is: Main.hs
+  build-depends: trickle
+
+test-suite checks
+  import: commons
+  type: exitcode-stdio-1.0
+  hs-source-dirs: test-suites/checks/
+  main-is: Main.hs
+  build-depends: tasty, tasty-quickcheck, trickle
