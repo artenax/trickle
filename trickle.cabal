@@ -6,10 +6,15 @@ common commons
   build-depends:
     , base
     , base-unicode-symbols
+    , bencode
     , bytestring
+    , entropy
     , http-client
     , http-types
+    , ip
+    , lens
     , optparse-generic
+    , pretty-simple
     , quickcheck-instances
     , text
     , transformers
@@ -19,6 +24,7 @@ common commons
     BlockArguments
     DuplicateRecordFields
     LambdaCase
+    MultiWayIf
     NoFieldSelectors
     NoMonomorphismRestriction
     OverloadedRecordDot
@@ -27,7 +33,7 @@ common commons
     UnicodeSyntax
     ViewPatterns
 
-  ghc-options: -Wall -Wno-unused-imports
+  ghc-options: -Wall
 
 library
   import: commons

@@ -1,3 +1,4 @@
+{-# LANGUAGE MonoLocalBinds #-}
 {-# LANGUAGE UndecidableInstances #-}
 
 module Main where
@@ -15,9 +16,6 @@ import Test.Tasty.QuickCheck
 
 testWriter ∷ TestName → Writer ([TestTree] → [TestTree]) () → TestTree
 testWriter name = testGroup name ∘ ($ []) ∘ execWriter
-
-write ∷ (Monad monad) ⇒ anything → WriterT ([anything] → [anything]) monad ()
-write item = tell (++ [item])
 
 main ∷ IO ()
 main = defaultMain do
