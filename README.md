@@ -5,6 +5,7 @@
 # Build
 
 ```
+# bypass sanctions
 export http_proxy=http://127.0.0.1:8080
 export https_proxy=http://127.0.0.1:8080
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
